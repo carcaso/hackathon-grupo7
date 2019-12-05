@@ -27,7 +27,7 @@ public class CharityServcieImpl implements CharityService {
     @Transactional
     @Override
     public Charity save(Charity charity) {
-        return null;
+        return charityDao.saveOrUpdate(charity);
     }
 
     @Transactional
