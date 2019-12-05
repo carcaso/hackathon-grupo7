@@ -22,14 +22,14 @@ public class RestCharityController {
         this.charityService = charityService;
     }
 
-    //@RequestMapping(method = RequestMethod.GET, path = {"/"})
+    @RequestMapping(method = RequestMethod.GET, path = {"/{id}"})
     public ResponseEntity<Charity> showCharity(@PathVariable Integer id){
 
         Charity charity = charityService.get(id);
 
-        /*if (charity == null) {
+        if (charity == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }*/
+        }
 
         return new ResponseEntity<>(charity, HttpStatus.OK);
     }

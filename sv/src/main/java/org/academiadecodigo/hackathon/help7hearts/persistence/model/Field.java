@@ -1,8 +1,5 @@
 package org.academiadecodigo.hackathon.help7hearts.persistence.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
 public class Field extends AbstractModel {
