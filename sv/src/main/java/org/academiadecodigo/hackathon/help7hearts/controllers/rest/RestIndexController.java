@@ -15,7 +15,7 @@ public class RestIndexController {
 
         ApiVersion version = new ApiVersion();
         version.setName("Help API");
-        version.setVersion("v0.01");
+        version.setVersion("v0.1");
 
         return version;
     }
