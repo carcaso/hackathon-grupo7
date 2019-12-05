@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class FieldDaoJPA extends GenericJpaDao<Field> implements FieldDao {
 
-    public FieldDaoJPA(Class<Field> modelType) {
+    public FieldDaoJPA() {
         super(Field.class);
     }
 }

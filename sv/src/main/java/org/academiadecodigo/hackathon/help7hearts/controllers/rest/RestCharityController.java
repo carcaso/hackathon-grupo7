@@ -29,9 +29,9 @@ public class RestCharityController {
 
         Charity charity = charityService.get(id);
 
-        if (charity == null) {
+        /*if (charity == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        }*/
 
         return new ResponseEntity<>(charity, HttpStatus.OK);
     }
