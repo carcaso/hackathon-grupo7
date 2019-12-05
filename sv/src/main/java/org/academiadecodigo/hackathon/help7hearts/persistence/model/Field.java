@@ -5,8 +5,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Field extends AbstractModel {
 
     private String category;
