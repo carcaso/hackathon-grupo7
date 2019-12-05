@@ -1,23 +1,23 @@
 package org.academiadecodigo.hackathon.help7hearts.controllers.rest;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class RestIndexController {
 
-    @RequestMapping(method = RequestMethod.GET, path = {"/", ""})
-    @ResponseBody
-    protected ApiVersion showVersion() {
+    @RequestMapping(method = RequestMethod.GET, path = "/")
+    protected ResponseEntity<ApiVersion> showVersion() {
 
         ApiVersion version = new ApiVersion();
         version.setName("Help API");
         version.setVersion("v0.01");
 
-        return version;
+        return new ResponseEntity<>(version, HttpStatus.OK);
     }
 
     private static class ApiVersion {
