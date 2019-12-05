@@ -1,6 +1,7 @@
 package org.academiadecodigo.hackathon.help7hearts.controllers.rest;
 
 
+import org.academiadecodigo.hackathon.help7hearts.exception.CharityNotFoundException;
 import org.academiadecodigo.hackathon.help7hearts.persistence.model.Charity;
 import org.academiadecodigo.hackathon.help7hearts.services.CharityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,30 @@ public class RestCharityController {
         List<Charity> charities = charityService.list();
 
         return new ResponseEntity<>(charities, HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, path = "{id}/delete/")
+    public ResponseEntity<HttpStatus> deleteCharity(@PathVariable Integer id) throws CharityNotFoundException {
+
+        if(charityService.get(id) != null){
+            charityService.delete(id);
+        }
+
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, path = "{id}/update/")
+    public ResponseEntity<Charity> updateCharity(@RequestBody Charity charityData, @PathVariable Integer id){
+
+        Charity charity = charityService.get(id);
+
+        charity.setName( charityData.getName() );
+        charity.setEmail( charityData.getEmail() );
+        charity.setField( charityData.getField() );
+        charity.setLocation( charityData.getLocation() );
+
+
+        return new ResponseEntity<Charity>(charity, HttpStatus.OK);
     }
 
 
