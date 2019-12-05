@@ -1,5 +1,6 @@
 package org.academiadecodigo.hackathon.help7hearts.controllers.web;
 
+import org.academiadecodigo.hackathon.help7hearts.persistence.model.Charity;
 import org.academiadecodigo.hackathon.help7hearts.services.CharityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,11 @@ public class CharityController {
 
     @RequestMapping(method = RequestMethod.GET, path = {"/list"})
     public String listCharities(Model model) {
-        model.addAttribute("customers", charityService.list());
+        Charity charity = new Charity();
+        charity.setName("Help the STRINGrays");
+        charity.setDescription("Yay so good");
+        charity.setEmail("wally");
+        charityService.save(charity);
         return "list";
     }
 }

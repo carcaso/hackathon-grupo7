@@ -34,7 +34,7 @@ public abstract class GenericJpaDao<T extends Model> implements Dao<T> {
     }
 
     public T saveOrUpdate(T modelObject) {
-        return null;
+        return em.merge(modelObject);
     }
 
     public void delete(Integer id) {
