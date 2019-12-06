@@ -81,20 +81,25 @@ public class RestCharityController {
     @RequestMapping(method = RequestMethod.PUT, path = {"add"})
     public ResponseEntity addCharity(@PathVariable CharityDto charityDto, UriComponentsBuilder uriComponentsBuilder) {
 
+
         List<Charity> charities = charityService.list();
+
+        // Check for duplicate entries
         for (Charity charity : charities) {
             if(charity.getName().toLowerCase().equals(charityDto.getName().toLowerCase())){
                 return new ResponseEntity(HttpStatus.CONFLICT);
             }
         }
 
-        Charity charity = charityDtoToCharity.convert(charityDto);
+        Charity charity = charityService.save(charityDtoToCharity.convert(charityDto));
+
 
         UriComponents uriComponents = uriComponentsBuilder.path("/charity/"+charity.getId()).build();
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setLocation(uriComponents.toUri());
 
-        return new ResponseEntity<>(httpHeaders, HttpStatus.CREATED);
+
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

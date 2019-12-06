@@ -1,7 +1,4 @@
-INSERT INTO charity(ID, CREATIONTIME, UPDATETIME, VERSION, NAME) VALUES
-  (4, TIMESTAMP '2017-10-10 08:45:56.468', TIMESTAMP '2017-10-10 08:45:56.468', 0, 'Doctors without Borders'),
-  (6, TIMESTAMP '2017-10-10 08:45:56.481', TIMESTAMP '2017-10-10 08:45:56.481', 0, 'Cruz Vermelha'),
-  (8, TIMESTAMP '2017-10-10 08:45:56.482', TIMESTAMP '2017-10-10 08:45:56.482', 0, 'IPDJ');
+INSERT INTO charity(ID, NAME, LOCATION ,CATEGORY,DESCRIPTION, hasDonationDemand, hasVolunteeringDemand, email, phone, url, logoUrl) VALUES(
 
-
+                                                                                                                                              )
 

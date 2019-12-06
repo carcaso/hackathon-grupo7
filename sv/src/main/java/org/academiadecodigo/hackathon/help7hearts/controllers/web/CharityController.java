@@ -26,7 +26,7 @@ public class CharityController {
 
     @RequestMapping(method = RequestMethod.GET, path = {"/list"})
     public String listCharities(Model model) {
-        Charity charity = new Charity();
+        /*Charity charity = new Charity();
         charity.setName("APADI");
         charity.setLocation("Portugal");
         charity.setCategory("Health");
@@ -35,7 +35,7 @@ public class CharityController {
         charity.setUrl("http://www.apadi.pt/");
         charity.setHasDonationDemand(true);
         charity.setHasVolunteeringDemand(true);
-        charityService.save(charity);
+        charityService.save(charity);*/
         return "list";
     }
 

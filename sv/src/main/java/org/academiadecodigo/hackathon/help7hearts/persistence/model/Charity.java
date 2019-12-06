@@ -1,7 +1,10 @@
 package org.academiadecodigo.hackathon.help7hearts.persistence.model;
 
+import org.hibernate.annotations.Columns;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "charity")
@@ -26,6 +29,7 @@ public class Charity extends AbstractModel {
     private String email;
     private String phone;
 
+    @Column(columnDefinition = "NVARCHAR(MAX)")
     private String logoUrl;
     private String url;
 
@@ -109,19 +113,5 @@ public class Charity extends AbstractModel {
         this.url = url;
     }
 
-    @Override
-    public String toString() {
-        return "Charity{" +
-                "name='" + name + '\'' +
-                ", location='" + location + '\'' +
-                ", category='" + category + '\'' +
-                ", description='" + description + '\'' +
-                ", hasDonationDemand=" + hasDonationDemand +
-                ", hasVolunteeringDemand=" + hasVolunteeringDemand +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", logoUrl='" + logoUrl + '\'' +
-                ", url='" + url + '\'' +
-                '}';
-    }
+
 }

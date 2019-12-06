@@ -45,7 +45,7 @@ public class CharityDto {
     @NotBlank
     private String website;
 
-    private String logo;
+    private String longDescription;
 
     @NotNull
     @NotBlank
@@ -132,11 +132,11 @@ public class CharityDto {
     }
 
     public String getLogo() {
-        return logo;
+        return longDescription;
     }
 
-    public void setLogo(String logo) {
-        this.logo = logo;
+    public void setLogo(String longDescription) {
+        this.longDescription = longDescription;
     }
 
     public String getUrl() {
