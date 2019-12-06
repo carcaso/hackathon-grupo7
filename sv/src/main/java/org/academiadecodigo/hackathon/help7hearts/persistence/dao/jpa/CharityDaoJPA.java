@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CharityDaoJPA extends GenericJpaDao<Charity> implements CharityDao {
 
-
     public CharityDaoJPA() {
         super(Charity.class);
     }

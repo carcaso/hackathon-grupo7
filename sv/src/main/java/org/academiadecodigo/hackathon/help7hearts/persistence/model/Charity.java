@@ -1,6 +1,10 @@
 package org.academiadecodigo.hackathon.help7hearts.persistence.model;
 
+import org.hibernate.annotations.Columns;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "charity")
@@ -8,25 +12,24 @@ public class Charity extends AbstractModel {
 
     private String name;
 
-    @OneToOne(
-            cascade = {CascadeType.ALL},
-            mappedBy = "charity",
-            fetch = FetchType.EAGER
-    )
-    private Location location;
+    @NotNull
+    private String location;
 
-    @OneToOne(
-            cascade = {CascadeType.ALL},
-            mappedBy = "charity",
-            fetch = FetchType.EAGER
-    )
-    private Field field;
+    @NotNull
+    private String category;
 
     private String description;
+
+    @NotNull
     private Boolean hasDonationDemand;
+
+    @NotNull
     private Boolean hasVolunteeringDemand;
+
     private String email;
     private String phone;
+
+    @Column(columnDefinition = "NVARCHAR(MAX)")
     private String logoUrl;
     private String url;
 
@@ -38,20 +41,20 @@ public class Charity extends AbstractModel {
         this.name = name;
     }
 
-    public Location getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public Field getField() {
-        return field;
+    public String getCategory() {
+        return category;
     }
 
-    public void setField(Field field) {
-        this.field = field;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getDescription() {
@@ -110,19 +113,5 @@ public class Charity extends AbstractModel {
         this.url = url;
     }
 
-    @Override
-    public String toString() {
-        return "Charity{" +
-                "name='" + name + '\'' +
-                ", location='" + location.getRegion() + '\'' +
-                ", field='" + field.getCategory() + '\'' +
-                ", description='" + description + '\'' +
-                ", hasDonationDemand=" + hasDonationDemand +
-                ", hasVolunteeringDemand=" + hasVolunteeringDemand +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", logoUrl='" + logoUrl + '\'' +
-                ", url='" + url + '\'' +
-                '}';
-    }
+
 }

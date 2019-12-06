@@ -34,6 +34,13 @@ public class CharityServcieImpl implements CharityService {
     @Override
     public void delete(Integer id) throws CharityNotFoundException {
 
+        Charity charity = charityDao.findById(id);
+
+        if (charity == null) {
+            throw new CharityNotFoundException();
+        }
+
+        charityDao.delete(id);
     }
 
     @Override

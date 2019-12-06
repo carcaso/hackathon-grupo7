@@ -2,11 +2,11 @@ package org.academiadecodigo.hackathon.help7hearts.persistence.dao.jpa;
 
 import org.academiadecodigo.hackathon.help7hearts.persistence.dao.Dao;
 import org.academiadecodigo.hackathon.help7hearts.persistence.model.Model;
-import org.hibernate.criterion.CriteriaQuery;
-import org.springframework.stereotype.Repository;
 
+import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 public abstract class GenericJpaDao<T extends Model> implements Dao<T> {
@@ -25,12 +25,15 @@ public abstract class GenericJpaDao<T extends Model> implements Dao<T> {
     }
 
     public List<T> findAll() {
-        return null;
-        //CriteriaQuery<T> criteriaQuery = em.getCriteriaBuilder().createQuery(modelType);
+
+        CriteriaQuery<T> criteriaQuery = em.getCriteriaBuilder().createQuery(modelType);
+
+        Root<T> root = criteriaQuery.from(modelType);
+        return em.createQuery(criteriaQuery).getResultList();
     }
 
     public T findById(Integer id) {
-        return null;
+        return em.find(modelType, id);
     }
 
     public T saveOrUpdate(T modelObject) {
@@ -38,6 +41,6 @@ public abstract class GenericJpaDao<T extends Model> implements Dao<T> {
     }
 
     public void delete(Integer id) {
-
+        em.remove(em.find(modelType, id));
     }
 }
