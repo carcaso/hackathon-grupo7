@@ -120,20 +120,21 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script type="text/javascript">
 
-function createRelated(currentField){
+function createRelated(currentField, currentId){
     fetch(url2).then((resp) => resp.json()
     .then(function(data){
 
         const maxImgs = 4;
         let placedImgs = 0;
-        $("#relatedContainer").html = "";
+        $("#relatedContainer").html("");
+
         data.forEach(function(element){
 
             console.log(element.category);
             console.log(currentField);
 
             /*while(i < maxElements){ */
-                if((element.category === currentField) && placedImgs < maxImgs){
+                if((element.category === currentField) && (placedImgs < maxImgs) && (element.id != currentId )){
                     $("#relatedContainer").append("<div class='col-md-3 col-sm-6 mb-4'><a href='/charity.html#" + element.id + "'><img class='img-fluid' src='resources/" + element.id + ".jpg' alt=''></a></div>");
                     console.log(element.category);
                     placedImgs++;
@@ -151,17 +152,23 @@ function createRelated(currentField){
 function fetchData(){
 
     var currentField;
+    var currentId;
+
+    url = "http://192.168.1.84:8080/help7hearts/api/charity/"+(window.location.hash).substr(1);
+    
     fetch(url).then((resp) => resp.json()).then(function(data){
-        
+        console.log(data);
         //const container = $("#charityEntries").children(".container").children(".row");
         $("#title").text(data.name);
         $("#shortDescription").text(data.description);
         $("#img").attr("src", "resources/"+data.id+".jpg");
 
         currentField = data.category; 
+        currentId = data.id;
         console.log("currentfield: "+ currentField);
 
-        $("#email, #phone").remove();
+        $("#email").remove();
+        $("#phone").remove();
 
         if((data.email != "") && (data.email != null)){
             $("#shortDescription").after("<p id='email'>email<br><span>" + data.email + "</span></p>");
@@ -169,17 +176,17 @@ function fetchData(){
         }
 
         if((data.phone != "") && (data.phone != null)){
-            $("#shortDescription").after("<p id='short'>telefone<br><span>" + data.phone + "</span></p>");
+            $("#shortDescription").after("<p id='phone'>telefone<br><span>" + data.phone + "</span></p>");
         }
 
-        createRelated(currentField);
+        createRelated(currentField, currentId);
     }).catch(function(){
         //$("#page").remove();
         //$("#error").show();
     });
 }
 
-url = "http://192.168.1.84:8080/help7hearts/api/charity/"+(window.location.hash).substr(1);
+
 url2 = "http://192.168.1.84:8080/help7hearts/api/charity/list";
 
 $(document).ready(function(){
@@ -187,6 +194,7 @@ $(document).ready(function(){
 });
 
 $(window).on('hashchange', function() {
+    console.log("hash change")
   fetchData();
 });
 </script>
