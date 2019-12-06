@@ -1,10 +1,14 @@
 #error{
     display: none;
     padding:200px 0;
-    min-height: 100vh;
 }
 body{
-    background: EEE;
+    background: #EEE;
+    min-height: 100vh;
+}
+
+#page{
+    min-height: 100vh;
 }
 
 .navbar{

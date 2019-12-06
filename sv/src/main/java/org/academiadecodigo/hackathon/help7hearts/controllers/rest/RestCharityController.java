@@ -60,7 +60,7 @@ public class RestCharityController {
 
         charity.setName( charityData.getName() );
         charity.setEmail( charityData.getEmail() );
-        charity.setField( charityData.getField() );
+        charity.setCategory( charityData.getCategory() );
         charity.setLocation( charityData.getLocation() );
 
 
