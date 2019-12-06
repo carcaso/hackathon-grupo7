@@ -1,6 +1,7 @@
 package org.academiadecodigo.hackathon.help7hearts.controllers.rest;
 
 
+import org.academiadecodigo.hackathon.help7hearts.dto.CharityDto;
 import org.academiadecodigo.hackathon.help7hearts.persistence.model.Charity;
 import org.academiadecodigo.hackathon.help7hearts.services.CharityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class RestCharityController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = {"/{id}"})
-    public ResponseEntity<Charity> showCharity(@PathVariable Integer id){
+    public ResponseEntity<Charity> showCharity(@PathVariable Integer id) {
 
         Charity charity = charityService.get(id);
 
@@ -42,5 +43,24 @@ public class RestCharityController {
         return new ResponseEntity<>(charities, HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, path = {"/{id}"})
+    public ResponseEntity deleteCharity(@PathVariable Integer id) {
 
+        if (charityService.get(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        try {
+            charityService.delete(id);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, path = {"add"})
+    public ResponseEntity addCharity(@PathVariable CharityDto charityDto) {
+
+        return null;
+    }
 }
