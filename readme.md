@@ -7,10 +7,10 @@ Online platform to help social causes.
 
 Authors: 
 @[Diogo Bessa](https://github.com/diogobessa) | 
-@[Filipe Lopes](https://github.com/fcruzlopes) 
-@[Leandro Correia](https://github.com/lmurias)
-@[Luis Reis](https://github.com/LuisMiguelDosReis)
-@[Rui Rodrigues](https://github.com/carcaso)
+@[Filipe Lopes](https://github.com/fcruzlopes) |
+@[Leandro Correia](https://github.com/lmurias) |
+@[Luis Reis](https://github.com/LuisMiguelDosReis) |
+@[Rui Rodrigues](https://github.com/carcaso) 
 
 This Hackathon's theme was a song, and inspired by The Beatles "Help" we started developing our concept.
 
