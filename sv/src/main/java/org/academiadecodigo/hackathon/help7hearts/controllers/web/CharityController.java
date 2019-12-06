@@ -1,8 +1,5 @@
 package org.academiadecodigo.hackathon.help7hearts.controllers.web;
 
-import org.academiadecodigo.hackathon.help7hearts.converters.CharityDtoToCharity;
-import org.academiadecodigo.hackathon.help7hearts.converters.CharityToCharityDto;
-import org.academiadecodigo.hackathon.help7hearts.dto.CharityDto;
 import org.academiadecodigo.hackathon.help7hearts.persistence.model.Charity;
 import org.academiadecodigo.hackathon.help7hearts.services.CharityService;
 import org.springframework.beans.factory.annotation.Autowired;
