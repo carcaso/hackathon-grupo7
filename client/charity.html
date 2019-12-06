@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Helpz</title>    
+        <meta name="description" content="">
+        <meta charset="UTF-8">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="theme-color" content="#fafafa">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Kanit:800i&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="error">
+    <div class="container">
+        <div class="row">
+            <h1>Error! We need <strong>help</strong> with our server.</h1>
+        </div>
+    </div>
+</div>
+<div id="page">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">HELPIFY<span>!</span></a>
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <!--<li class="nav-item active">
+            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+        </li>-->
+
+        </ul>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create your charity</button>
+    </div>
+</nav>
+
+ <!-- Page Content -->
+ <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3" id="title">Charity
+          <small></small>
+        </h1>
+    
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="breadcrumb-item active">Charity</li>
+        </ol>
+    
+        <!-- Portfolio Item Row -->
+        <div class="row">
+    
+          <div class="col-md-8">
+            <img class="img-fluid charityImg" id="img" src="http://placehold.it/750x500" alt="">
+          </div>
+    
+          <div class="col-md-4">
+            <h3 class="my-3">Charity Description</h3>
+            <p id="shortDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+        
+          </div>
+    
+        </div>
+        <!-- /.row -->
+    
+        <!-- Related Projects Row -->
+        <h3 class="my-4">Related Projects</h3>
+    
+        <div class="row" id="relatedContainer">
+    
+          <!--<div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+          </div>
+    
+          <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+          </div>
+    
+          <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+          </div>
+    
+          <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+          </div>-->
+    
+        </div>
+        <!-- /.row -->
+        </div>
+      </div>
+      <!-- /.container -->
+    
+    
+
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Help 2019</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+function createRelated(currentField){
+    fetch(url2).then((resp) => resp.json()
+    .then(function(data){
+
+        const maxImgs = 4;
+        let placedImgs = 0;
+        $("#relatedContainer").html = "";
+        data.forEach(function(element){
+
+            console.log(element.category);
+            console.log(currentField);
+
+            /*while(i < maxElements){ */
+                if((element.category === currentField) && placedImgs < maxImgs){
+                    $("#relatedContainer").append("<div class='col-md-3 col-sm-6 mb-4'><a href='/charity.html#" + element.id + "'><img class='img-fluid' src='http://placehold.it/500x300' alt=''></a></div>");
+                    console.log(element.category);
+                    placedImgs++;
+                } 
+                
+                /*i++;*/
+            /*}*/
+
+    
+        });
+
+    }));
+}
+
+function fetchData(){
+
+    var currentField;
+    fetch(url).then((resp) => resp.json()).then(function(data){
+        
+        //const container = $("#charityEntries").children(".container").children(".row");
+        $("#title").text(data.name);
+        $("#shortDescription").text(data.description);
+        $("#img").attr("src", data.url);
+
+        currentField = data.category; 
+        console.log("currentfield: "+ currentField);
+
+        $("#email, #phone").remove();
+
+        if((data.email != "") && (data.email != null)){
+            $("#shortDescription").after("<p id='email'>email<br><span>" + data.email + "</span></p>");
+            console.log(data.email);
+        }
+
+        if((data.phone != "") && (data.phone != null)){
+            $("#shortDescription").after("<p id='short'>phone<br><span>" + data.phone + "</span></p>");
+        }
+        //$("#shortDescription").after("<p>phone<br><span>" + 99999999 + "</span></p>");
+
+        createRelated(currentField);
+    }).catch(function(){
+        $("#page").remove();
+        $("#error").show();
+    });
+}
+
+url = "http://192.168.1.84:8080/help7hearts/api/charity/"+(window.location.hash).substr(1);
+url2 = "http://192.168.1.84:8080/help7hearts/api/charity/list";
+
+$(document).ready(function(){
+    fetchData();
+});
+
+$(window).on('hashchange', function() {
+  fetchData();
+});
+</script>
+</body>
+</html>

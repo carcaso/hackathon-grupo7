@@ -1,7 +1,91 @@
+#error{
+    display: none;
+    padding:200px 0;
+    min-height: 100vh;
+}
 body{
     background: EEE;
 }
 
-div{
-    border:1px solid #CCC;
+.navbar{
+    padding: 0.8rem 1rem;
+}
+
+#focus{
+    background-size:cover;
+    background-image: url("https://thevisualcommunicationguy.com/wp-content/uploads/2018/08/Charity-Water.jpg");
+    min-height: 600px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+#focus > div{
+    position: absolute;
+    bottom:0px;
+    left:0px;
+}
+
+#focus > div > div.row > div{
+    background-color: #171819;
+}
+
+#focus .col-content{
+    padding:20px;
+}
+
+#focus h1 a#focusTitle{
+    font-size: 4rem;
+    color: #FFF;
+}
+
+#focus #focusContent{
+    color:#FFF;
+}
+
+.col-content{
+    background-color:#FFF;
+
+}
+
+a.navbar-brand{
+    font-weight: 800;
+    color:green !important;
+}
+
+a.navbar-brand > span{
+    color:#171819;
+}
+
+.portfolio-item{
+    margin:20px 0;
+}
+
+a, a:visited, a:active{
+    color:green;
+}
+
+a:hover{
+    color:#171819;
+}
+
+.charityImg{
+    min-width: 700px;
+    min-height: 400px;
+}
+
+#dropdownMenuLink{
+    border: 2px solid green;
+    background:transparent;
+}
+
+#dropwdownMenuLink > a:hover{
+    color: green !important;
+}
+
+#locationDropdown > a, #locationDropdown > a:active, #locationDropdown > a:visited{
+    color: green;
+}
+
+#locationDropdown > a:hover{
+    color:#171819 !important;
 }
