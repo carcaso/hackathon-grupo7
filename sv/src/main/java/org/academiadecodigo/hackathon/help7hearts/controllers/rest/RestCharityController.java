@@ -43,7 +43,7 @@ public class RestCharityController {
         return new ResponseEntity<>(charities, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "{id}/delete/")
+    @RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
     public ResponseEntity<HttpStatus> deleteCharity(@PathVariable Integer id) throws CharityNotFoundException {
 
         if(charityService.get(id) != null){
@@ -53,19 +53,38 @@ public class RestCharityController {
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, path = "{id}/update/")
+    @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
     public ResponseEntity<Charity> updateCharity(@RequestBody Charity charityData, @PathVariable Integer id){
 
         Charity charity = charityService.get(id);
 
         charity.setName( charityData.getName() );
-        charity.setEmail( charityData.getEmail() );
-        charity.setCategory( charityData.getCategory() );
         charity.setLocation( charityData.getLocation() );
+        charity.setCategory( charityData.getCategory() );
+        charity.setDescription( charityData.getDescription() );
+        charity.setHasDonationDemand( charityData.getHasDonationDemand() );
+        charity.setHasVolunteeringDemand( charityData.getHasVolunteeringDemand() );
+        charity.setEmail( charityData.getEmail() );
+        charity.setPhone( charityData.getPhone() );
 
-
-        return new ResponseEntity<Charity>(charity, HttpStatus.OK);
+        return new ResponseEntity<>(charity, HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.POST, path = {"", "/"})
+    public ResponseEntity<Charity> addCharity(@RequestBody Charity charityData){
+
+        Charity charity = new Charity();
+
+        charity.setName( charityData.getName() );
+        charity.setLocation( charityData.getLocation() );
+        charity.setCategory( charityData.getCategory() );
+        charity.setDescription( charityData.getDescription() );
+        charity.setHasDonationDemand( charityData.getHasDonationDemand() );
+        charity.setHasVolunteeringDemand( charityData.getHasVolunteeringDemand() );
+        charity.setEmail( charityData.getEmail() );
+        charity.setPhone( charityData.getPhone() );
+
+        return new ResponseEntity<>(charity, HttpStatus.OK);
+    }
 
 }

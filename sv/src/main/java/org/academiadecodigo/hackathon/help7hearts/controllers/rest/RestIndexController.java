@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class RestIndexController {
 
-    @RequestMapping(method = RequestMethod.GET, path = "/")
+    @RequestMapping(method = RequestMethod.GET, path = {"/", ""})
     protected ResponseEntity<ApiVersion> showVersion() {
 
         ApiVersion version = new ApiVersion();
