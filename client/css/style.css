@@ -1,95 +1,232 @@
-#error{
-    display: none;
-    padding:200px 0;
-}
 body{
-    background: #EEE;
+    font-family: 'Ubuntu Mono', monospace;
     min-height: 100vh;
 }
 
-#page{
-    min-height: 100vh;
+.full-container{
+    width:100%;
+    max-width: 100%;
 }
 
-.navbar{
-    padding: 0.8rem 1rem;
+.inline-childs > *{
+    display: inline-block;
 }
 
-#focus{
-    background-size:cover;
-    background-image: url("https://thevisualcommunicationguy.com/wp-content/uploads/2018/08/Charity-Water.jpg");
-    min-height: 600px;
-    margin-bottom: 60px;
-    position: relative;
+.v-align-middle > *{
+    vertical-align: middle;
 }
 
-#focus > div{
-    position: absolute;
-    bottom:0px;
-    left:0px;
-}
-
-#focus > div > div.row > div{
-    background-color: #171819;
-}
-
-#focus .col-content{
+header{
     padding:20px;
 }
 
-#focus h1 a#focusTitle{
-    font-size: 4rem;
-    color: #FFF;
+header > nav ul{
+    margin:0;
+    padding: 0;
+    list-style: none;
 }
 
-#focus #focusContent{
+header button{
+    margin: 0;
+}
+
+header > nav ul > li{
+    margin:0;
+    padding:0;
+}
+
+header > nav ul > li > a{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 12px;
     color:#FFF;
+    text-decoration: none;
+    padding:10px 15px;
 }
 
-.col-content{
+.featured-wrapper{
+    height: 400px;
+    width: 100%;
+    background-color: #8DAA91;
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+    margin:50px 0 0;
+    
+}
+
+.featured-wrapper > h1{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    background: #171819;
+    color:#FFF;
+    padding: 10px 25px;
+}
+
+.filters-wrapper{
+    text-align: right;
+    padding: 80px 0 0;
+    width: 100%;
+}
+
+.filters-wrapper > *{
+    cursor: pointer;
+}
+
+#location-select{
+    margin:0;
+}
+
+.cause-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+
+.cause-card{
+    height:auto;
+    background-color:grey;
+    position: relative;
+    border-radius:2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    box-sizing: border-box;
+    border:6px solid;
+    margin-top:35px;
+    margin-left:0 !important;
+}
+
+.cause-card.hide{
+    display: none;
+}
+
+.cause-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
+}
+
+.cause-card > img{
+    max-width:100%;
+}
+
+.cause-card > h1{
+    font-family: 'Lora', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #FFF;
+    margin:10px 0;
+}
+
+.cause-card > a{
     background-color:#FFF;
-
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 2px;
+    cursor: pointer;
 }
 
-a.navbar-brand{
-    font-weight: 800;
-    color:green !important;
+.cause-card > a:hover{
+    background-color:#33C3F0;
+    color:#FFF;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-a.navbar-brand > span{
-    color:#171819;
+.color-0 {
+    background-color: #EB5160;
+    border-color:#EB5160;
 }
 
-.portfolio-item{
-    margin:20px 0;
+.color-1 {
+    background-color: #8F3985;
+    border-color:#8F3985;
 }
 
-a, a:visited, a:active{
-    color:green;
+.color-2 {
+    background-color: #8DAA91;
+    border-color:#8DAA91;
 }
 
-a:hover{
-    color:#171819;
+.color-3 {
+    background-color: #888DA7;
 }
 
-.charityImg{
-    min-width: 700px;
-    min-height: 400px;
+
+.toggle-button{
+    margin-right:10px;
 }
 
-#dropdownMenuLink{
-    border: 2px solid green;
-    background:transparent;
+.toggle-button * {
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
 }
 
-#dropwdownMenuLink > a:hover{
-    color: green !important;
+.toggle-button > .ball-wrapper{
+    background:#FFF;
+    border:2px solid #EEE;
+    width:40px;
+    height: 20px;
+    border-radius: 10px;
 }
 
-#locationDropdown > a, #locationDropdown > a:active, #locationDropdown > a:visited{
-    color: green;
+.toggle-button > .ball-wrapper > .ball{
+    background-color: #CCC;
+    width: 16px;
+    height: 16px;
+    border-radius: 10px;
+    position: relative;
+    top:2px;
+    left:2px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-#locationDropdown > a:hover{
-    color:#171819 !important;
+.toggle-button.active > .ball-wrapper > .ball{
+    left:20px;
+    background-color:#8DAA91
 }
+
+.toggle-button h2{
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+select{ 
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+ }
+
+ option[value=""]{
+     display: none;
+ }
+
+
+ footer{
+     background: #171819;
+     margin-top:50px;
+ }
+ footer p{
+     text-align: center;
+     color:#FFF;
+     margin:20px 0;
+ }
+
+
+ /* CAUSE PAGE */
+
+ #related-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;  
+ }
+
+ #cause-text{
+     margin-top:50px;
+     font-size:2rem;
+ }

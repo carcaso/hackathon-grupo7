@@ -1,193 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Helpz</title>    
-        <meta name="description" content="">
-        <meta charset="UTF-8">
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="theme-color" content="#fafafa">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Kanit:800i&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/style.css">
+
+    <meta charset="utf-8">
+    <title>Help!</title>
+    <meta name="description" content="Help a charity!">
+    <meta name="author" content="7d'<3">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Ubuntu+Mono:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="resources/images/icons/favicon.png">
+
 </head>
 <body>
-    
-    <!--<div id="error">
+
+    <header class="color-2">
+        <nav class="navbar">
+            <div class="container full-container">
+            <div class="ten columns inline-childs v-align-middle">
+                <img src="resources/images/logo.svg" width="140" height="auto" alt="help!"/>
+                <ul>
+                    <li>
+                        <a target="_self" href="/">home</a>
+                        <a target="_self" href="#">about</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="two columns">
+                <button class="button-primary">Adicionar causa</button>
+            </div>
+            </div>
+        </nav>
+    </header>
+
     <div class="container">
+
         <div class="row">
-            <h1>Error! We need <strong>help</strong> with our server.</h1>
-        </div>
-    </div>
-</div>-->
-<div id="page">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">HELP<span>!</span></a>
-    
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-        </ul>
-
-        <a class="nav-item" href="/about.html" targe="_self">about us</a>
-        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">about us</button>-->
-
-        </form>
-    </div>
-</nav>
-
-<header id="focus">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4 col-content">
-                    <h1>
-                        <a id="focusTitle" href="#">Charity</a>
-                    </h1>
-                    <p id="focusContent">
-                       ...
-                    </p>
+            <div class="twelve columns">
+                <div class="featured-wrapper" id="featured-wrapper">
+                    <h1>aaaa</h1>
+                </div>
             </div>
         </div>
 
-    </div>
-</header>
+        <div class="row">
+            <div class="twelve columns">
+                <div class="filters-wrapper inline-childs">
+                    <div class="toggle-button inline-childs v-align-middle active" id="vol-button" data-state="true" onClick="btToggle(this);">
+                        <div class="ball-wrapper">
+                            <div class="ball"></div>
+                        </div>
+                        <h2>Voluntariado</h2>
+                    </div>
+                    <div class="toggle-button inline-childs v-align-middle active" id="don-button" data-state="true" onClick="btToggle(this);">
+                        <div class="ball-wrapper">
+                            <div class="ball"></div>
+                        </div>
+                        <h2>Doações</h2>
+                    </div>
 
-<!--<section class="filters" id="filters">
-    <div class="container">
-        <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Location
-            </a>
-            
-            <div id="locationDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item">countryName</a>
+                    <select id="location-select">
+                        <option value="" selected="selected">localização</option>
+                        <option value="aveiro">Aveiro</option>
+                        <option value="lisboa">Lisboa</option>
+                        <option value="porto">Porto</option>
+                    </select>
+                </div>
             </div>
+        </div>
 
+        <div class="row">
+            <div class="twelve column">
+                <div class="cause-wrapper" id="cause-wrapper">
+                    <!--<div class="cause-card three columns color-0">
+                        <img src="resources/images/content/2.jpg" alt="image" />
+                        <h1>Aaa</h1>
+                        <a href="#">saber mais</a>
+                    </div>-->
+                </div>
+            </div>
         </div>
     </div>
-</section>-->
 
-<section class="charityEntries" id="charityEntries">
-    <div class="container">
-        <div class="row">
-    
-        </div>    
-    </div>
-</section>
-</div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="eight columns offset-by-two">
+                    <p>Copyright &copy; Help 2019</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/config.js"></script>
+    <script type="text/javascript">
 
-<footer class="py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Help 2019</p>
-    </div>
-</footer>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script type="text/javascript">
+        featuredCause = element => {
+            const featuredContainer = document.getElementById("featured-wrapper");
+            featuredContainer.getElementsByTagName( 'h1' )[0].innerHTML = element.name;
+            featuredContainer.style.backgroundImage = "url('resources/images/content/" + element.id + ".jpg')";
+        }
 
-function filter(){
-    var location;
+        createCauseCard = element => {
+            const container = document.getElementById("cause-wrapper");
 
-    if(location === null || location === ""){
-        return;
-    }
-}
-
-function addLocation(location){
-    $("#locationDropdown").append("<a>teste</a>");
-    
-}
-
-function setFocusCharity(el){
-
-    $("#focus").css("background-image", "url(resources/" + el.id + ".jpg)");  
-    $("#focusTitle").text(el.name).attr("href", "charity.html#"+el.id);
-
-    $("#focusContent").text(el.description);   
-
-    console.log(el.logoUrl);
-}
-
-function createElement(container, el){
-
-    const charityObject = $("<div data-donations='"+ el.donations +"'></div>");
-    charityObject.addClass("col-lg-4 col-sm-6 portfolio-item");
-    //charityObject.append("<div class='card h-100'><a href='#'><img class='card-img-top' src='http://placehold.it/700x400' alt='' /></a></div>");
-    
-    const cardObject = $("<div></div>");
-    cardObject.addClass("card h-100");
-
-    const linkObject = $("<a></a>");
-    linkObject.attr("href", "charity.html#"+el.id);
-    linkObject.attr("target", "_self");
-
-    const imgObject = $("<img>");
-    imgObject.addClass("card-img-top");
-    imgObject.attr("src", "resources/"+el.id+".jpg");
-    imgObject.attr("alt", "img");
-
-    const cardBody = $("<div></div>");
-    cardBody.addClass("card-body");
-    
-    const cardTitle = $("<h4></h4>");
-    cardTitle.addClass("card-title");
-
-    const cardTitleLink = $("<a></a>");
-    cardTitleLink.attr("href", "charity.html#"+el.id);
-    cardTitleLink.attr("target", "_self");
-    cardTitleLink.text(el.name);
-
-    const cardText = $("<p></p>");
-    cardText.text(el.description);
-
-    linkObject.append(imgObject);
-    cardObject.append(linkObject);
-
-    cardObject.append(cardBody);
-    cardBody.append(cardTitle);
-    cardTitle.append(cardTitleLink);
-    
-    cardBody.append(cardText);
-
-    charityObject.append(cardObject);
-    container.append(charityObject);
-
-}
-
-url = "http://192.168.1.84:8080/help7hearts/api/charity/list";
-
-$(document).ready(function(){
-    
-    const container = $("#charityEntries").children(".container").children(".row");
-
-    fetch(url).then((resp) => resp.json()).then(function(data){
-        
-        const randomCharity = Math.floor(Math.random() * data.length);
-        setFocusCharity(data[randomCharity]);
-        
-        
-        data.forEach(function(element){
-            addLocation(element.location); 
-            createElement(container, element);
-        });
+            let causeCard = document.createElement("DIV");
+            causeCard.classList.add("cause-card", "three", "columns", "color-2");
+            causeCard.setAttribute("data-volunteering", element.hasVolunteeringDemand);
+            causeCard.setAttribute("data-donations", element.hasDonationDemand);
+            causeCard.setAttribute("data-location", 1);
 
 
-    }).catch(function(){
-        //$("#page").remove();
-        //$("#error").show();
-    });
+            let causeImage = document.createElement("IMG");
+            causeImage.setAttribute("src", "resources/images/content/" + element.id + ".jpg");
+            causeImage.setAttribute("alt", "image");
 
-    $("#locationDropdown > a").click(function(e){
-        e.preventDefault;
-        $("#dropdownMenuLink").text( e.target.text );
-        
-    });
-});
-</script>
+            let causeTitle = document.createElement("H1");
+            causeTitle.append( document.createTextNode(element.name) );
+
+            let causeLink = document.createElement("A");
+            causeLink.setAttribute("href", "/cause.html#"+element.id);
+            causeLink.append( document.createTextNode("saber mais") );
+
+            causeCard.append(causeImage);
+            causeCard.append(causeTitle);
+            causeCard.append(causeLink);
+
+            container.append(causeCard);
+        }
+
+
+        filter = () => {
+            let filterData = {
+                vol: document.getElementById("vol-button").getAttribute("data-state"),
+                don: document.getElementById("don-button").getAttribute("data-state"),
+                loc: ""
+            }
+            console.log(filterData);
+            let causeCards = document.getElementsByClassName("cause-card");
+
+            [].forEach.call(causeCards, (card) => {
+
+                const volunteering = card.getAttribute("data-volunteering");
+                const donations = card.getAttribute("data-donations");
+                const location = card.getAttribute("data-location");
+                console.log(volunteering + " + " + donations + " + " + location);
+
+                
+                if(filterData.vol != card.getAttribute("data-volunteering") || filterData.don != card.getAttribute("data-donations")){
+                    card.classList.add("hide");
+                    return;
+                }
+
+                card.classList.remove("hide");
+            });
+
+        }
+
+        btToggle = element => {
+
+            if(!element.classList.contains("active")){
+                element.classList.add("active");
+                element.setAttribute("data-state", true);
+                filter();
+                return;
+            }
+
+            element.classList.remove("active");
+            element.setAttribute("data-state", false);
+            filter();
+        }
+
+        populateData = data => {
+
+            const randomCause = Math.floor(Math.random() * data.length);
+            featuredCause(data[randomCause]);
+
+            data.forEach(function(element){
+                createCauseCard(element);
+            });
+
+        }
+
+        fetch(url)
+        .then((resp) => resp.json())
+        .then((data) => populateData(data))
+        .catch(() => {
+            console.log("error!");
+            populateData(dataIfCatch);
+        })
+
+    </script>
 </body>
 </html>

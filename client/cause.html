@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>Help!</title>
+    <meta name="description" content="Help a charity!">
+    <meta name="author" content="7d'<3">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Ubuntu+Mono:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="resources/images/icons/favicon.png">
+
+</head>
+<body>
+
+    <header class="color-2">
+        <nav class="navbar">
+            <div class="container full-container">
+            <div class="ten columns inline-childs v-align-middle">
+                <img src="resources/images/logo.svg" width="140" height="auto" alt="help!"/>
+                <ul>
+                    <li>
+                        <a target="_self" href="/">home</a>
+                        <a target="_self" href="#">about</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="two columns">
+                <button class="button-primary">Adicionar causa</button>
+            </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="twelve columns">
+                <div class="featured-wrapper" id="featured-wrapper">
+                    <h1 id="cause-title">aaaa</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="ten columns">
+                <div class="cause-wrapper" id="cause-wrapper">
+                    <p id="cause-text">aaaaaa</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="four columns">
+            <p>phone<br/><span id="cause-phone"></span></p>
+          </div>
+          <div class="four columns">
+              <p>email<br/><span id="cause-email"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="row" id="related-container">
+
+      </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="eight columns offset-by-two">
+                    <p>Copyright &copy; Help 2019</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/config.js"></script>
+    <script type="text/javascript">
+
+        relatedCount = 0;
+
+        createRelated = element => {
+
+          const container = document.getElementById("related-container");
+
+          let newRelatedCard = document.createElement("DIV");
+              newRelatedCard.classList.add("cause-card", "three", "columns", "color-2");
+
+          let relatedCardImage = document.createElement("IMG");
+              relatedCardImage.setAttribute("src", "resources/images/content/" + element.id + ".jpg");
+              relatedCardImage.setAttribute("alt", "image");
+
+          let relatedCardTitle = document.createElement("H1");
+              relatedCardTitle.append( document.createTextNode(element.name) );
+
+          let relatedCardLink = document.createElement("A");
+              relatedCardLink.setAttribute("href", "/cause.html#"+element.id);
+              relatedCardLink.append( document.createTextNode("saber mais") );
+            
+              newRelatedCard.append(relatedCardImage);
+              newRelatedCard.append(relatedCardTitle);
+              newRelatedCard.append(relatedCardLink);
+
+              container.append(newRelatedCard);
+
+              relatedCount++;
+        }
+
+        populateData = data => {
+          console.log(data);
+          const thisId = window.location.hash.substr(1);
+          data.forEach(element => {
+            if(element.id == thisId){
+              document.getElementById("cause-title").innerHTML = element.name;
+              document.getElementById("cause-text").innerHTML = element.description;
+              document.getElementById("cause-phone").innerHTML = element.phone;
+              document.getElementById("cause-email").innerHTML = element.email;
+              document.getElementById("featured-wrapper").style.backgroundImage = "url('resources/images/content/" + element.id + ".jpg')";
+              return;
+            }
+
+            if(data[thisId].category == element.category && relatedCount < 4 ){
+              createRelated(element);
+            }
+            
+          });
+
+            
+        }
+
+        
+        fetchData = () => {
+            console.log("aaaa");
+            fetch(url)
+            .then((resp) => resp.json())
+            .then((data) => populateData(data))
+            .catch(() => {
+                console.log("error! getting fake data!");
+                populateData(dataIfCatch);
+            });
+        };
+        fetchData();
+
+        window.onhashchange = fetchData;
+    </script>
+</body>
+</html>
